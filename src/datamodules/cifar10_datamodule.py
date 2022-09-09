@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional, Tuple
 import torch
 from pytorch_lightning import LightningDataModule
 from torch.utils.data import ConcatDataset, DataLoader, Dataset, random_split
-from torchvision.datasets import MNIST, CIFAR10
+from torchvision.datasets import CIFAR10, MNIST
 from torchvision.transforms import transforms
 
 BATCH_SIZE = 256 if torch.cuda.is_available() else 64
@@ -15,7 +15,7 @@ class CIFAR10DataModule(LightningDataModule):
         train_val_test_split: Tuple[int, int, int] = (55_000, 5_000, 10_000),
         batch_size: int = 64,
         num_workers: int = 0,
-        pin_memory: bool = False
+        pin_memory: bool = False,
     ):
         super().__init__()
         self.data_dir = data_dir
