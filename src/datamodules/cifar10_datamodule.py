@@ -8,6 +8,7 @@ from torchvision.transforms import transforms
 
 BATCH_SIZE = 256 if torch.cuda.is_available() else 64
 
+
 class CIFAR10DataModule(LightningDataModule):
     def __init__(
         self,
